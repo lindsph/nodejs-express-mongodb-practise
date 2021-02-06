@@ -1,30 +1,10 @@
 require('dotenv').config({ path: './test.env' })
 const request = require('supertest');
-const jwt = require('jsonwebtoken');
-const mongoose = require('mongoose');
 const app = require('../src/app');
 const User = require('../src/models/user');
+const { userOne, userOneId, setupDatabase } = require('./fixtures/db');
 
-const userOneId = new mongoose.Types.ObjectId();
-const userOne = {
-    _id: userOneId,
-    name: 'userOne',
-    email: 'userOne@test.com',
-    password: 'imuserone111',
-    tokens: [
-        {
-            token: jwt.sign({ _id: userOneId}, process.env.JWT_SECRET)
-        }
-    ]
-}
-
-beforeEach(async () => {
-    // empty the database
-    await User.deleteMany();
-
-    // create new user
-    await new User(userOne).save();
-});
+beforeEach(setupDatabase);
 
 test('Should signup a new user', async () => {
     const response = await request(app)

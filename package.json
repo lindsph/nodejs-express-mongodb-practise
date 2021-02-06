@@ -7,7 +7,7 @@
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "test": "jest",
-    "test:watch": "jest --watch --detectOpenHandles"
+    "test:watch": "jest --watch --runInBand --detectOpenHandles"
   },
   "jest": {
     "testEnvironment": "node"
