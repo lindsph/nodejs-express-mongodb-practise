@@ -8,12 +8,12 @@ const sendWelcomeEmail = (email, name) => {
         subject: 'Thanks for joining!',
         text: `Welcome to the app ${name}, feel free to reach out if you have any questions!`
     })
-    .then(() => {
-        console.log('Email sent')
-    })
-    .catch((error) => {
-        console.log(error)
-    });
+    // .then((result) => {
+    //     console.log('Email sent')
+    // })
+    // .catch((error) => {
+    //     console.log(error)
+    // });
 };
 
 const sendCancellationEmail = (email, name) => {
@@ -23,12 +23,12 @@ const sendCancellationEmail = (email, name) => {
         subject: 'We\'re sorry to see you go!',
         text: `Anything we can do to change your mind ${name}?`
     })
-    .then(() => {
-        console.log('Cancellationlation email sent')
-    })
-    .catch((error) => {
-        console.log(error)
-    })
+    // .then((result) => {
+    //     console.log('Cancellationlation email sent')
+    // })
+    // .catch((error) => {
+    //     console.log(error)
+    // })
 }
 
 module.exports = {

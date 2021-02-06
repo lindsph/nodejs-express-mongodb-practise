@@ -139,7 +139,7 @@ router.delete('/users/me', authMiddleware, async (req, res) => {
         sendCancellationEmail(req.user.email, req.user.name);
         res.send(req.user);
     } catch (error) {
-        res.status(500).send();
+        res.status(401).send();
     }
 });
 
